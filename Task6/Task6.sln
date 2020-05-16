@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmApp.Android", "MvvmApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmApp", "MvvmApp\MvvmApp\MvvmApp.csproj", "{16D211DA-4511-49F4-94AF-0964F9054BC7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextMenuApp.Android", "ContextMenuApp\ContextMenuApp.Android\ContextMenuApp.Android.csproj", "{D15551EA-D2ED-4DF4-8D1D-0FCEEEBAC15E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextMenuApp", "ContextMenuApp\ContextMenuApp\ContextMenuApp.csproj", "{66798119-C5C5-485F-AD2F-20FF11E69280}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,16 @@ Global
 		{16D211DA-4511-49F4-94AF-0964F9054BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16D211DA-4511-49F4-94AF-0964F9054BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16D211DA-4511-49F4-94AF-0964F9054BC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D15551EA-D2ED-4DF4-8D1D-0FCEEEBAC15E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D15551EA-D2ED-4DF4-8D1D-0FCEEEBAC15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D15551EA-D2ED-4DF4-8D1D-0FCEEEBAC15E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D15551EA-D2ED-4DF4-8D1D-0FCEEEBAC15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D15551EA-D2ED-4DF4-8D1D-0FCEEEBAC15E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D15551EA-D2ED-4DF4-8D1D-0FCEEEBAC15E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{66798119-C5C5-485F-AD2F-20FF11E69280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66798119-C5C5-485F-AD2F-20FF11E69280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66798119-C5C5-485F-AD2F-20FF11E69280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66798119-C5C5-485F-AD2F-20FF11E69280}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
