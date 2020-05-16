@@ -41,7 +41,8 @@ namespace PhoneApp.ViewModel
                 if (_phone.Title != value)
                 {
                     _phone.Title = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
+                    PropertyChanged?.Invoke(this,
+                        new PropertyChangedEventArgs(nameof(Title)));
                 }
             }
         }
@@ -54,7 +55,8 @@ namespace PhoneApp.ViewModel
                 if (_phone.Company != value)
                 {
                     _phone.Company = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Company)));
+                    PropertyChanged?.Invoke(this,
+                        new PropertyChangedEventArgs(nameof(Company)));
                 }
             }
         }
@@ -67,7 +69,8 @@ namespace PhoneApp.ViewModel
                 if (_phone.Price != value)
                 {
                     _phone.Price = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Price)));
+                    PropertyChanged?.Invoke(this,
+                        new PropertyChangedEventArgs(nameof(Price)));
                 }
             }
         }
