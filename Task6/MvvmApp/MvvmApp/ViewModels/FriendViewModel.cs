@@ -6,7 +6,7 @@ namespace MvvmApp.ViewModels
     public class FriendViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public Friend Friend { get; private set; }
+        public Friend Friend { get; }
         public FriendViewModel()
         {
             Friend = new Friend();
@@ -73,9 +73,9 @@ namespace MvvmApp.ViewModels
         {
             get
             {
-                return ((!string.IsNullOrEmpty(Name.Trim())) ||
-                    (!string.IsNullOrEmpty(Phone.Trim())) ||
-                    (!string.IsNullOrEmpty(Email.Trim())));
+                return ((!string.IsNullOrEmpty(Name?.Trim())) &&
+                    (!string.IsNullOrEmpty(Phone?.Trim())) &&
+                    (!string.IsNullOrEmpty(Email?.Trim())));
             }
         }
     }

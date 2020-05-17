@@ -8,16 +8,19 @@ namespace MvvmApp.ViewModels
 {
     public class FriendsListViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<FriendViewModel> Friends { get; set; }
-        public ICommand CreateFriendCommand { get; protected set; }
-        public ICommand DeleteFriendCommand { get; protected set; }
-        public ICommand SaveFriendCommand { get; protected set; }
-        public ICommand BackCommand { get; protected set; }
-        public INavigation Navigation { get; set; }
+        private INavigation _navigation;
 
-        public FriendsListViewModel()
+        public event PropertyChangedEventHandler PropertyChanged;
+        public ObservableCollection<FriendViewModel> Friends { get; }
+        public ICommand CreateFriendCommand { get; }
+        public ICommand DeleteFriendCommand { get; }
+        public ICommand SaveFriendCommand { get; }
+        public ICommand BackCommand { get; }
+
+        public FriendsListViewModel(INavigation navigation)
         {
+            _navigation = navigation ??
+                throw new System.ArgumentNullException(nameof(navigation));
             Friends = new ObservableCollection<FriendViewModel>();
             CreateFriendCommand = new Command(CreateFriend);
             DeleteFriendCommand = new Command(DeleteFriend);
@@ -37,24 +40,24 @@ namespace MvvmApp.ViewModels
                     _SelectedFriend = null;
                     PropertyChanged?.Invoke(this,
                         new PropertyChangedEventArgs(nameof(SelectedFriend)));
-                    Navigation.PushAsync(new FriendPage(tempFriend));
+                    _navigation.PushAsync(new FriendPage(tempFriend));
                 }
             }
         }
 
         private void CreateFriend()
         {
-            Navigation.PushAsync(new FriendPage(new FriendViewModel() { ListViewModel = this }));
+            _navigation.PushAsync(new FriendPage(new FriendViewModel { ListViewModel = this }));
         }
 
         private void Back()
         {
-            Navigation.PopAsync();
+            _navigation.PopAsync();
         }
 
         private void SaveFriend(object friendObject)
         {
-            FriendViewModel friend = friendObject as FriendViewModel;
+            var friend = friendObject as FriendViewModel;
             if (friend != null && friend.IsValid)
             {
                 Friends.Add(friend);
@@ -64,7 +67,7 @@ namespace MvvmApp.ViewModels
 
         private void DeleteFriend(object friendObject)
         {
-            FriendViewModel friend = friendObject as FriendViewModel;
+            var friend = friendObject as FriendViewModel;
             if (friend != null)
             {
                 Friends.Remove(friend);

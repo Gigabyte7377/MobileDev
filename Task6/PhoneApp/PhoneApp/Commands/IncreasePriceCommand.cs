@@ -25,7 +25,7 @@ namespace PhoneApp.Commands
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
             if (CanExecute(parameter))
             {
-                _viewModel.IncreasePrice();
+                _viewModel.OnIncreasePrice();
             }
         }
     }

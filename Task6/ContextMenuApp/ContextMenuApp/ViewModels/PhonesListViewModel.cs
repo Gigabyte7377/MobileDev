@@ -6,20 +6,20 @@ namespace ContextMenuApp.ViewModels
 {
     public class PhonesListViewModel
     {
-        public ObservableCollection<PhoneViewModel> Phones { get; set; }
-        public ICommand MoveToTopCommand { get; protected set; }
-        public ICommand MoveToBottomCommand { get; protected set; }
-        public ICommand RemoveCommand { get; protected set; }
+        public ObservableCollection<PhoneViewModel> Phones { get; }
+        public ICommand MoveToTopCommand { get; }
+        public ICommand MoveToBottomCommand { get; }
+        public ICommand RemoveCommand { get; }
 
         public PhonesListViewModel()
         {
             Phones = new ObservableCollection<PhoneViewModel>
             {
-                new PhoneViewModel { Title="HP Elite z3", Price=55000, Company="HP", ListViewModel=this },
-                new PhoneViewModel { Title="Honor 8", Price= 28000, Company="Huawei", ListViewModel=this },
-                new PhoneViewModel { Title="iPhone SE", Price=30000, Company="Apple", ListViewModel=this },
-                new PhoneViewModel { Title="Galaxy Note 7", Price=60000, Company="Samsung", ListViewModel=this },
-                new PhoneViewModel { Title="Lumia 950 XL", Price=36000, Company="Microsoft", ListViewModel=this }
+                new PhoneViewModel { Title="HP Elite z3", Price=55000, Company="HP", ListViewModel= this },
+                new PhoneViewModel { Title="Honor 8", Price= 28000, Company="Huawei", ListViewModel= this },
+                new PhoneViewModel { Title="iPhone SE", Price=30000, Company="Apple", ListViewModel= this },
+                new PhoneViewModel { Title="Galaxy Note 7", Price=60000, Company="Samsung", ListViewModel= this },
+                new PhoneViewModel { Title="Lumia 950 XL", Price=36000, Company="Microsoft", ListViewModel= this }
             };
 
             MoveToTopCommand = new Command(MoveToTop);
@@ -29,7 +29,7 @@ namespace ContextMenuApp.ViewModels
 
         private void MoveToTop(object phoneObj)
         {
-            PhoneViewModel phone = phoneObj as PhoneViewModel;
+            var phone = phoneObj as PhoneViewModel;
             if (phone == null) return;
             int oldIndex = Phones.IndexOf(phone);
             if (oldIndex > 0)
@@ -37,7 +37,7 @@ namespace ContextMenuApp.ViewModels
         }
         private void MoveToBottom(object phoneObj)
         {
-            PhoneViewModel phone = phoneObj as PhoneViewModel;
+            var phone = phoneObj as PhoneViewModel;
             if (phone == null) return;
             int oldIndex = Phones.IndexOf(phone);
             if (oldIndex < Phones.Count - 1)
@@ -45,9 +45,8 @@ namespace ContextMenuApp.ViewModels
         }
         private void Remove(object phoneObj)
         {
-            PhoneViewModel phone = phoneObj as PhoneViewModel;
+            var phone = phoneObj as PhoneViewModel;
             if (phone == null) return;
-
             Phones.Remove(phone);
         }
     }

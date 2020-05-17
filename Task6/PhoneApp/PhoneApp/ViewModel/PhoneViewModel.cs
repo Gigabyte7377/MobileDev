@@ -10,21 +10,24 @@ namespace PhoneApp.ViewModel
     public class PhoneViewModel : INotifyPropertyChanged
     {
         private Phone _phone;
+        public event PropertyChangedEventHandler PropertyChanged;
+        public ICommand Increase { get; }
 
         public PhoneViewModel()
         {
             _phone = new Phone();
+
+            //реализация собственным классом
             //Increase = new IncreasePriceCommand(this);
-            Increase = new Command(execute: IncreasePrice, canExecute: CanIncreasePrice);
+            //использование встроенной реализации
+            Increase = new Command(execute: OnIncreasePrice, canExecute: CanIncreasePrice);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand Increase { get; }
-
-        public void IncreasePrice()
+        public void OnIncreasePrice()
         {
             if (_phone != null)
                 Price += 1000;
+            //вызываем событие CanExecuteChanged
             (Increase as Command).ChangeCanExecute();
         }
 
@@ -63,7 +66,7 @@ namespace PhoneApp.ViewModel
 
         public int Price
         {
-            get { return _phone.Price; }
+            get => _phone.Price;
             set
             {
                 if (_phone.Price != value)

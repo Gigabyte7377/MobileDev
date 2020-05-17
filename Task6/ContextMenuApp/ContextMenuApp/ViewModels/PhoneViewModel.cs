@@ -6,7 +6,7 @@ namespace ContextMenuApp.ViewModels
     public class PhoneViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public Phone Phone { get; set; }
+        public Phone Phone { get; }
         public PhonesListViewModel ListViewModel { get; set; }
         public PhoneViewModel()
         {

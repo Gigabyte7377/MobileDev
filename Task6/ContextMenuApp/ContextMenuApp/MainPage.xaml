@@ -12,11 +12,14 @@
                     <ViewCell>
                         <ViewCell.ContextActions>
                             <MenuItem Text="Вверх"
-                    Command="{Binding Path=ListViewModel.MoveToTopCommand}" CommandParameter="{Binding}" />
+                                      Command="{Binding Path=ListViewModel.MoveToTopCommand}"
+                                      CommandParameter="{Binding}" />
                             <MenuItem Text="Вниз"
-                    Command="{Binding Path=ListViewModel.MoveToBottomCommand}" CommandParameter="{Binding}" />
+                                      Command="{Binding Path=ListViewModel.MoveToBottomCommand}"
+                                      CommandParameter="{Binding}" />
                             <MenuItem Text="Удалить"
-                    Command="{Binding Path=ListViewModel.RemoveCommand}" CommandParameter="{Binding}" />
+                                      Command="{Binding Path=ListViewModel.RemoveCommand}"
+                                      CommandParameter="{Binding}" />
                         </ViewCell.ContextActions>
                         <ViewCell.View>
                             <StackLayout>
